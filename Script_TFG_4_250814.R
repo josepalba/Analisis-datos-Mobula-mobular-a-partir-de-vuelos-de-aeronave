@@ -1,7 +1,7 @@
 # Título trabajo: Distribución espacial de la población de Mobula mobular en el Mediterráneo occidental y su relación con variables ambientales.
 # Autor: Josep Alba Campins
 # Contacto: josep.alba.campins@gmail.com
-# Fecha y versión: 14/08/2025, versión 3
+# Fecha y versión: 14/08/2025, versión 4.
 
 # 0. CREACIÓN TRANSECTOS REGULARES A PARTIR DE DATOS DE VUELO
 # Imput: Documento excel con las siguientes columnas: Dia / Año / ID_T / hora0 / horaf / Lat0 / Lon0 / Latf / Lonf
@@ -813,6 +813,7 @@ cat("  Latitud óptima:       ", round(best_conditions_gam_pos$lat, 4), "°\n")
 cat("  Hora óptima:          ", round(best_conditions_gam_pos$hora, 2), " horas\n")
 
 cat("  Probabilidad máxima:  ", round(best_conditions_gam_pos$prob, 4), "\n")
+
 
 
 
