@@ -4,7 +4,7 @@ UTILIZADO EN TRABAJO: DISTRIBUCIÓN ESPACIAL DE LA POBLACIÓN DE MOBULA MOBULAR 
 
 AUTOR: Josep Alba Campins
 
-FECHA Y VERSIÓN: 14/08/2025, versión 4
+FECHA Y VERSIÓN: 15/08/2025, versión 5
 
 DESCRIPCIÓN: 
 El código divide los vuelos en transectos regulares de 15 millas náuticas y los relaciona con los datos de avistamientos. Para la delimitación final de los transectos, inserta el transecto sobrante de la división (<15nm) en el intervalo con menor cantidad de observaciones para minimizar la pérdida de información. Finalmente se eliminan los transectos sobrantes.
