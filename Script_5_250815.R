@@ -485,6 +485,10 @@ ggplot(transect_final) +
   geom_boxplot(aes(y = depth)) +
   ggtitle("Distribución de Profundidad (depth)")
 
+# 3.4 Guardar dataframe en formato excel
+
+write.xlsx(transect_final, file = "C:/Users/Usuario/Desktop/TFG/Datos/trans_fin.xlsx")
+
 # 4. MODELOS GAM
 # Imput: Para mapa probabilidad datos de línea de costa y perfil batimétrico de la zona de estudio (obtenidos del IEO)
 # Output: 
@@ -821,6 +825,7 @@ cat("  Latitud óptima:       ", round(best_conditions_gam_pos$lat, 4), "°\n")
 cat("  Hora óptima:          ", round(best_conditions_gam_pos$hora, 2), " horas\n")
 
 cat("  Probabilidad máxima:  ", round(best_conditions_gam_pos$prob, 4), "\n")
+
 
 
 
