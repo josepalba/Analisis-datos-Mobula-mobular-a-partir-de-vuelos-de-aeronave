@@ -1,7 +1,7 @@
 # Título trabajo: Distribución espacial de la población de Mobula mobular en el Mediterráneo occidental y su relación con variables ambientales.
 # Autor: Josep Alba Campins
 # Contacto: josep.alba.campins@gmail.com
-# Fecha y versión: 14/08/2025, versión 4.
+# Fecha y versión: 15/08/2025, versión 5.
 
 # 0. CREACIÓN TRANSECTOS REGULARES A PARTIR DE DATOS DE VUELO
 # Imput: Documento excel con las siguientes columnas: Dia / Año / ID_T / hora0 / horaf / Lat0 / Lon0 / Latf / Lonf
@@ -542,12 +542,16 @@ gam.check(gam_pos)
 
 gam_2 <- gam(presencia ~ s(hora, bs = "cc", k = 10) + s(chl, k = 5) + s(depth, k = 3), family = binomial(link = "logit"),data = t2, method = "REML")
 
+gam.check(gam_2)
+    
 AIC (gam)
 
 AIC (gam_2)
 
 gam_pos_2 <- gam( presencia ~ s(hora, bs = "cc", k = 10) + s(chl, k = 5) + s(depth, k = 3) + s(lon, lat, k = 30), family = binomial(link = "logit"), data = t2, method = "REML")
 
+gam.check(gam_pos_2)
+      
 AIC (gam_pos)
 
 AIC (gam_pos_2)
@@ -625,6 +629,10 @@ cat("AUC GAM sin posición:", auc(roc_gam), "\n")
 
 cat("AUC GAM con posición:", auc(roc_gam_pos), "\n")
 
+sim_res_gam <- simulateResiduals(gam)
+
+sim_res_gam_pos <- simulateResiduals(gam_pos)
+      
 testDispersion(sim_res_gam)
 
 par(mfrow = c(1, 2))
@@ -813,6 +821,7 @@ cat("  Latitud óptima:       ", round(best_conditions_gam_pos$lat, 4), "°\n")
 cat("  Hora óptima:          ", round(best_conditions_gam_pos$hora, 2), " horas\n")
 
 cat("  Probabilidad máxima:  ", round(best_conditions_gam_pos$prob, 4), "\n")
+
 
 
 
